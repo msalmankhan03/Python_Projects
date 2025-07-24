@@ -1,0 +1,53 @@
+"""
+#### Step 3: Create a Console Interface
+We’ll add a simple menu-driven interface for users to interact with the system.
+
+**Update `library.py`**:
+```python
+def main():
+    library = Library()
+    while True:
+        print("\n=== Library Management System ===")
+        print("1. Add Book")
+        print("2. Borrow Book")
+        print("3. Return Book")
+        print("4. View All Books")
+        print("5. View Available Books")
+        print("6. View Books by Author (Chart)")
+        print("7. Exit")
+        choice = input("Enter choice (1-7): ")
+
+        if choice == '1':
+            title = input("Enter book title: ")
+            author = input("Enter author name: ")
+            isbn = input("Enter ISBN: ")
+            library.add_book(title, author, isbn)
+
+        elif choice == '2':
+            isbn = input("Enter ISBN of book to borrow: ")
+            library.borrow_book(isbn)
+
+        elif choice == '3':
+            isbn = input("Enter ISBN of book to return: ")
+            library.return_book(isbn)
+
+        elif choice == '4':
+            library.view_books()
+
+        elif choice == '5':
+            library.view_books(available_only=True)
+
+        elif choice == '6':
+            library.books_by_author()
+
+        elif choice == '7':
+            print("Thank you for using the Library Management System!")
+            break
+
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()
+
+    """
